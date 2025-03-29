@@ -145,6 +145,14 @@ function updateState()
     end
 end
 
+function pauseAndStartScreensaver()
+    mp.set_property_bool("pause",true)
+    mp.set_property_bool("fullscreen",true)
+    state.paused = true
+    state.fullscreen = true
+    startScreensaver()
+end
+
 state.startScreensaverAfterTimer = mp.add_timeout(o.startAfter, startScreensaver)
 state.startScreensaverAfterTimer:kill()
 state.drawScreensaverTimer = mp.add_periodic_timer(o.rainbowRedrawPrediod, drawScreensaver)
@@ -155,3 +163,5 @@ state.mouseMovementTimer:kill()
 mp.observe_property("pause", "bool", pauseEvent)
 mp.observe_property("fullscreen", "bool", fullscreenEvent)
 mp.observe_property("seeking", "bool", clearEvent)
+
+mp.add_key_binding("Ctrl+p", "pause_and_start_screensaver", pauseAndStartScreensaver)
