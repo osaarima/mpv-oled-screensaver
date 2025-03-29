@@ -1,7 +1,12 @@
 ## mpv-oled-screensaver
 
 Due to  burn-in problems on OLED TVs i decided to script a screensaver for mpv.
-After 15 seconds when paused it just fades-in a black screen.
+After 15 seconds when paused it just fades-in a black screen. The screensaver
+can be started on command with Ctrl+p which also pauses and activates
+fullscreen. This can be rebinded in input.conf with
+```
+<new bind> script-binding pause_and_start_screensaver
+```
 
 
 ## Options
