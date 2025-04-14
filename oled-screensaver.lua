@@ -9,6 +9,7 @@ local o = {
     rainbowRedrawPrediod = 0.03,
     alphaStep = 12,
     luminance = 255,
+    mouseMovementClears = false,
 }
 
 local state = {
@@ -72,7 +73,9 @@ end
 
 function startScreensaver()
     state.drawScreensaverTimer:resume()
-    mp.add_forced_key_binding("mouse_move", "screensaver_mouse_move", clearEvent)
+    if o.mouseMovementClears then
+        mp.add_forced_key_binding("mouse_move", "screensaver_mouse_move", clearEvent)
+    end
     state.mouseMovementTimer:kill()
 end
 

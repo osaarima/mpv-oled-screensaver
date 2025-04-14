@@ -36,3 +36,7 @@ How many steps for the fade-in of the screensaver (Default: 12).
 
 #### luminance
 The Luminace of the rainbow colours (Default: 255).
+
+#### mouseMovementClears
+If false only toggling pause, toggling fullscreen, or seeking clears the screensaver.
+If true also moving the mouse clears the screensaver. (Default: true)
