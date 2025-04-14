@@ -9,7 +9,7 @@ local o = {
     rainbowRedrawPrediod = 0.03,
     alphaStep = 12,
     luminance = 255,
-    mouseMovementClears = false,
+    mouseMovementClears = true,
 }
 
 local state = {
