@@ -22,7 +22,7 @@ local state = {
     alpha = 255,
     paused = false,
     fullscreen = false,
-    ignore_clear_once = false,
+    ignoreClearOnce = false,
 }
 
 options.read_options(o)
@@ -125,13 +125,13 @@ function checkMouseMovement()
 end
 
 function clearEvent(name, clear)
-    if not state.ignore_clear_once then
+    if not state.ignoreClearOnce then
         clearScreensaver()
         if state.paused and state.fullscreen then
             state.mouseMovementTimer:resume()
         end
     else
-        state.ignore_clear_once = false
+        state.ignoreClearOnce = false
     end
 end
 
@@ -157,7 +157,7 @@ function pauseAndStartScreensaver()
     -- Need to ignore clearing command once because otherwise
     -- pause and fullscreen interrups the screensaver
     -- immediately in clearEvent
-    state.ignore_clear_once = true
+    state.ignoreClearOnce = true
     mp.set_property_bool("pause",true)
     mp.set_property_bool("fullscreen",true)
     state.paused = true
